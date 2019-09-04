@@ -3,9 +3,9 @@ library(data.table)
 # Download NYC's Stop and Frisk CSV files from 2003 to 2016 at:   
 # https://www1.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
 
-# If files are not at the link, search NYC Open Data portal
+# If files are not at the link, search NYC Open Data portal.
 
-# 2017 .csv & 2018 .xlsx omitted; variables differ significantly from prior years and relatively miniscule number of observations after 2016. 
+# 2017 & 2018 are omitted; variables differ significantly from prior years. See the readme for more on this decision.
 
 files <- paste0("path/to/files/sqf-", 2003:2016,".csv") # change path to location of CSV files
 
