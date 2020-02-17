@@ -3,9 +3,7 @@ library(ggplot2)
 library(scales) # For thousands separator in y axis
 options(scipen = 100) # Suppress scientific notation
 
-# Raw data at: https://www1.nyc.gov/site/nypd/stats/reports-analysis/stopfrisk.page
-
-sqfByYear <- fread("sqfByYear.csv") # Stop/frisk totals abstrated by year
+sqfByYear <- fread("sqfByYear.csv") # Stop/frisk yearly totals processed in StopFrisk_process_rawData.R in this repo
 
 # Barchart using geom_col: ----
  
@@ -30,7 +28,7 @@ ggplot(sqfByYear, aes(x = year, y = N)) +
   scale_y_continuous(
     labels = comma,
     breaks = c(200000, 400000, 600000),
-    sec.axis = dup_axis(breaks = c(10000, 100000), labels = comma) # some y axis breaks on right, less eyeball work
+    sec.axis = dup_axis(breaks = c(10000, 100000), labels = comma) # some y axis breaks on right side for easier readability
   ) +
   labs(
     x = "Year",
