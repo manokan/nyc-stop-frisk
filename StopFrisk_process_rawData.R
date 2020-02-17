@@ -12,17 +12,17 @@ files <- paste0("path/to/files/sqf-", 2003:2016,".csv") # change path to locatio
 # Caution: Next step generates a 3.7GB list 
 sqf <-  lapply(files, fread) #  size = ~3.7GB 
 
-# Examining variables across DTs in list
-Reduce(union, lapply(sqf, names)) #  126 total variables
-Reduce(intersect, lapply(sqf, names)) # 101 vars common to all DTs
+# Examining/understanding variables in data frames for all 14 years in list
+Reduce(union, lapply(sqf, names)) #  126 total unique variables
+Reduce(intersect, lapply(sqf, names)) # 101 vars common to all data tables
 
-# setdiff() on above shows 3 vars are mixed-case versions of 3 lower-case vars; equalizing case by changing all to lower case:
+# setdiff() on above shows the difference is in the case of three variable names; equalizing case by changing all to lower case:
 
 for (i in 1:14) {
   names(sqf[[i]]) <- tolower(names(sqf[[i]]))
 }
 
-# Convert list of DTs to single data.table; new size = ~4.2GB
+# Convert list of data tables into single data.table; new size = ~4.2GB
 sqf <- rbindlist(sqf, use.names = TRUE, fill = TRUE)
 
 saveRDS(sqf, "sqf.rds")
