@@ -1,6 +1,6 @@
 ## NYC's Stop and Frisk
 
-This a challenging public dataset to clean, parse, and visualize. I hope to do that in some detail. 
+This a challenging dataset to clean, parse, and visualize. I hope to do that in some detail. 
 
 StopFrisk_process_rawData.R contains the link for downloading the raw data and code for reading it into R and doing some basic processing. The resulting file, at ~200MB+, is still too large for free cloud hosting. Each of the folders, however, contains a CSV file of the subsetted data required for that task. 
 
